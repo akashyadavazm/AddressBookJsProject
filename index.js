@@ -22,6 +22,13 @@ myAddressBook.addContact(
   "60601", "5557654321", "alice.williams@example.com"
 );
 
+// Try adding a duplicate contact
+myAddressBook.addContact(
+    "Alice", "Johnson", 
+    "789 Maple St", "Chicago", "IL", 
+    "60601", "5557654321", "alice.duplicate@example.com"
+  );
+
 // Find a contact by name
 console.log("Searching for Alice...");
 const foundContacts = myAddressBook.findContactByName("Alice");

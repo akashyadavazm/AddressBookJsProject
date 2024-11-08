@@ -6,14 +6,24 @@ class AddressBook {
     this.contacts = []; // This will store all contacts
   }
 
-  // Method to add a new contact
-  addContact(firstName, lastName, address, city, state, zip, phone, email) {
-    try {
-      const newContact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
-      this.contacts.push(newContact);
-      console.log("Contact added successfully!");
-    } catch (error) {
-      console.error("Error adding contact:", error.message);
+   // Method to add a new contact to the AddressBook with duplicate check
+   addContact(firstName, lastName, address, city, state, zip, phone, email) {
+    // Check for duplicate by filtering contacts with the same first and last name
+    const isDuplicate = this.contacts.some(contact =>
+      contact.firstName.toLowerCase() === firstName.toLowerCase() &&
+      contact.lastName.toLowerCase() === lastName.toLowerCase()
+    );
+
+    if (isDuplicate) {
+      console.log(`Contact with the name "${firstName} ${lastName}" already exists. Duplicate entry not allowed.`);
+    } else {
+      try {
+        const newContact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
+        this.contacts.push(newContact); // Add the new contact to the contacts array
+        console.log("Contact added successfully!");
+      } catch (error) {
+        console.error("Error adding contact:", error.message); // Handle validation errors
+      }
     }
   }
 
