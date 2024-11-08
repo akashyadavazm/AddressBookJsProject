@@ -17,6 +17,36 @@ class AddressBook {
     }
   }
 
+  // Method to find a contact by first name or last name
+  findContactByName(name) {
+    // Filter contacts by first name or last name
+    const foundContacts = this.contacts.filter(contact =>
+      contact.firstName.toLowerCase() === name.toLowerCase() || 
+      contact.lastName.toLowerCase() === name.toLowerCase()
+    );
+
+    if (foundContacts.length > 0) {
+      return foundContacts; // Return the found contacts
+    } else {
+      console.log("No contacts found with that name.");
+      return null;
+    }
+  }
+
+  // Method to edit an existing contact's details
+  editContact(name, newDetails) {
+    const foundContacts = this.findContactByName(name); // Find the contact by name
+
+    if (foundContacts && foundContacts.length > 0) {
+      const contactToEdit = foundContacts[0]; // Assume the first match for now
+      // Update the contact's details with the new values
+      Object.assign(contactToEdit, newDetails);
+      console.log("Contact updated successfully!");
+    } else {
+      console.log("Contact not found.");
+    }
+  }
+
   // Method to display all contacts
   displayContacts() {
     if (this.contacts.length === 0) {
