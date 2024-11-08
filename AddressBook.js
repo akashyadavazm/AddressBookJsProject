@@ -47,6 +47,11 @@ class AddressBook {
     }
   }
 
+    // Method to get the number of contacts in the AddressBook
+    getContactCount() {
+        return this.contacts.length;
+      }
+
   // Method to delete a contact by name
   deleteContactByName(name) {
     const initialLength = this.contacts.length;
