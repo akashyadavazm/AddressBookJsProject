@@ -47,6 +47,21 @@ class AddressBook {
     }
   }
 
+  // Method to delete a contact by name
+  deleteContactByName(name) {
+    const initialLength = this.contacts.length;
+    this.contacts = this.contacts.filter(contact =>
+      contact.firstName.toLowerCase() !== name.toLowerCase() &&
+      contact.lastName.toLowerCase() !== name.toLowerCase()
+    );
+
+    if (this.contacts.length < initialLength) {
+      console.log(`Contact(s) with the name "${name}" deleted successfully.`);
+    } else {
+      console.log(`No contact found with the name "${name}" to delete.`);
+    }
+  }
+
   // Method to display all contacts
   displayContacts() {
     if (this.contacts.length === 0) {

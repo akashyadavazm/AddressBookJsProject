@@ -16,23 +16,20 @@ myAddressBook.addContact(
   "90001", "5559876543", "bob.smith@example.com"
 );
 
+myAddressBook.addContact(
+  "Alice", "Williams", 
+  "789 Maple St", "Chicago", "IL", 
+  "60601", "5557654321", "alice.williams@example.com"
+);
+
 // Display all contacts
+console.log("All contacts:");
 myAddressBook.displayContacts();
 
-// Find a contact by name
-console.log("Searching for Alice...");
-const foundContacts = myAddressBook.findContactByName("Alice");
-if (foundContacts) {
-  console.log("Found contacts:");
-  foundContacts.forEach(contact => contact.displayContactInfo());
-}
+// Delete a contact by name
+console.log("Deleting contact(s) named Alice...");
+myAddressBook.deleteContactByName("Alice");
 
-// Edit a contact's information
-console.log("Editing Bob's contact...");
-myAddressBook.editContact("Bob", {
-  address: "789 Pine St", // Change address
-  phone: "5551239876"     // Change phone number
-});
-
-// Display updated contacts
+// Display contacts after deletion
+console.log("Contacts after deletion:");
 myAddressBook.displayContacts();
