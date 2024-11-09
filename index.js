@@ -22,6 +22,12 @@ myAddressBook.addContact(
   "60601", "5557654321", "alice.williams@example.com"
 );
 
+myAddressBook.addContact(
+  "Charlie", "Brown", 
+  "789 Maple St", "Los Angeles", "California", 
+  "10001", "5557654321", "charlie.brown@example.com"
+);
+
 // Find a contact by name
 console.log("Searching for Alice...");
 const foundContacts = myAddressBook.findContactByName("Alice");
@@ -51,3 +57,11 @@ myAddressBook.deleteContactByName("Alice");
 // Display contacts after deletion
 console.log("Contacts after deletion:");
 myAddressBook.displayContacts();
+
+// Find contacts by city
+console.log("\nSearching for contacts in Los Angeles...");
+myAddressBook.findContactsByCity("Los Angeles");
+
+// Find contacts by state
+console.log("\nSearching for contacts in California...");
+myAddressBook.findContactsByState("California");

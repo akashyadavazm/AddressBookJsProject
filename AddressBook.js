@@ -47,10 +47,10 @@ class AddressBook {
     }
   }
 
-    // Method to get the number of contacts in the AddressBook
-    getContactCount() {
-        return this.contacts.length;
-      }
+  // Method to get the number of contacts in the AddressBook
+  getContactCount() {
+      return this.contacts.length;
+    }
 
   // Method to delete a contact by name
   deleteContactByName(name) {
@@ -66,6 +66,35 @@ class AddressBook {
       console.log(`No contact found with the name "${name}" to delete.`);
     }
   }
+
+   // Method to find contacts by city
+   findContactsByCity(city) {
+    const contactsInCity = this.contacts.filter(contact => 
+      contact.city.toLowerCase() === city.toLowerCase()
+    );
+
+    if (contactsInCity.length > 0) {
+      console.log(`Contacts in ${city}:`);
+      contactsInCity.forEach(contact => contact.displayContactInfo());
+    } else {
+      console.log(`No contacts found in ${city}.`);
+    }
+  }
+
+  // Method to find contacts by state
+  findContactsByState(state) {
+    const contactsInState = this.contacts.filter(contact => 
+      contact.state.toLowerCase() === state.toLowerCase()
+    );
+
+    if (contactsInState.length > 0) {
+      console.log(`Contacts in ${state}:`);
+      contactsInState.forEach(contact => contact.displayContactInfo());
+    } else {
+      console.log(`No contacts found in ${state}.`);
+    }
+  }
+
 
   // Method to display all contacts
   displayContacts() {
